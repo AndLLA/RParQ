@@ -9,11 +9,9 @@ struct ParQuantile : public Worker
 {
   // source matrix
   const RMatrix<double> input;
-//  arma::mat input;
   
   // destination matrix
   RMatrix<double> output;
-  //arma::mat output;
   
   // list of quantiles to calculate
   const NumericVector listQ;
@@ -48,7 +46,7 @@ NumericMatrix parallelQuantileByCol(NumericMatrix x, NumericVector listQ) {
   // allocate the output matrix
   NumericMatrix output(listQ.length(), x.ncol());
   
-  // SquareRoot functor (pass input and output matrixes)
+  // ParQuantile functor (pass input and output matrixes)
   ParQuantile parQnt(x, output, listQ);
   
   // call parallelFor to do the work
