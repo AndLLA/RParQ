@@ -7,6 +7,8 @@ library(rbenchmark)
 
 sessionInfo()
 
+sourceCpp("RParQ.cpp")
+
 numRows = 10000
 numCols = 250*10
 buf = matrix(data = runif(numRows*numCols)*123, nrow = numRows, ncol = numCols)
